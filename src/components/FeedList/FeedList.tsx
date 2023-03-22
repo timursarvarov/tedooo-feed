@@ -1,26 +1,24 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import {FeedItem, TypeItem} from "../FeedItem/FeedItem";
-import InfiniteScroll from "react-infinite-scroll-component";
+import React, {useState, useEffect, ReactNode} from 'react';
+import {FeedItem, TypeFeedItem} from "../FeedItem/FeedItem";
 import {useEffectOnce} from "../../hooks/UseEffectOnce";
+import VirtualAndInfiniteScroll from "../VirtualAndInfiniteScroll/VirtualAndInfiniteScroll";
+import Api from "../../services/api";
+import {FeedResponse} from "../../services/FeedApiInterface";
 
 const FeedList: React.FC = () => {
-    const [feedItems, setFeedItems] = useState<TypeItem[]>([]);
+    const [feedItems, setFeedItems] = useState<TypeFeedItem[]>([]);
     const [skip, setSkip] = useState(0);
     const [hasMore, setHasMore] = useState<boolean>(true);
 
     const fetchFeedItems = async () => {
         try {
-            const response = await axios.get(`https://dev.tedooo.com/hw/feed.json?skip=${skip}`);
-            const data = response.data;
+            const data: FeedResponse = await Api.getFeedList(skip) // get(`https://dev.tedooo.com/hw/feed.json?skip=${skip}`);
 
             setFeedItems(prevItems => {
-                console.log(prevItems, skip, data.data, hasMore);
-                return [...prevItems, ...data.data]
+                return [...prevItems, ...data.feedList]
             });
-                console.log( skip);
             setSkip(skip + 6);
-            setHasMore(data.has_more);
+            setHasMore(data.hasMore);
         } catch (error) {
             console.error(error);
         }
@@ -32,22 +30,22 @@ const FeedList: React.FC = () => {
         console.log('useEffect', skip);
     });
 
-    return (
-        <InfiniteScroll
-            dataLength={feedItems.length}
-            next={fetchFeedItems}
-            hasMore={hasMore}
-            loader={<h4>Loading...</h4>}
-            endMessage={<p>No more items to display.</p>}
-            refreshFunction={()=>{console.log('refresh')}}
-            pullDownToRefresh={true}
-            scrollThreshold={0.9}
-        >
-            {feedItems.map((item: TypeItem) => (
-                <FeedItem key={item.id} item={item}/>
-            ))}
-        </InfiniteScroll>
+
+    const NodeFeedItems = feedItems.map(feedItem =>
+        <FeedItem item={feedItem} />
     );
+
+
+
+    return (
+        <VirtualAndInfiniteScroll
+            lastRowHandler={fetchFeedItems}
+            height={230}
+            listItems={NodeFeedItems}
+            hasMore={hasMore}
+        />);
+
+
 };
 
 export default FeedList;

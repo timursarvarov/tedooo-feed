@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import {useInView} from "react-intersection-observer";
 
-export type TypeItem = {
+
+export type TypeFeedItem = {
     id: string;
     user_name: string;
     shop_name: string;
@@ -12,12 +14,13 @@ export type TypeItem = {
 }
 
 export type TypeFeedItemProps = {
-    item: TypeItem;
+    item: TypeFeedItem;
 }
 
 export const FeedItem: React.FC<TypeFeedItemProps> = ({item}: TypeFeedItemProps) => {
     const [is_liked, setIsLiked] = useState<boolean>(item.is_liked);
     const [likes, setLikes] = useState<number>(item.total_likes);
+    const [ref, inView] = useInView()
 
     function handleLike() {
         setIsLiked(!is_liked);
@@ -26,7 +29,7 @@ export const FeedItem: React.FC<TypeFeedItemProps> = ({item}: TypeFeedItemProps)
 
     return (
 
-        <div style={{"height" : "430px", "width" : "130px"}} >
+        <div >
             <div>{item.id}</div>
             <div>{item.shop_name}</div>
             <div>{item.post_text}</div>
