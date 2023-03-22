@@ -1,5 +1,7 @@
-import React, {FC, ReactNode, useEffect} from 'react';
-import {useInView} from 'react-intersection-observer';
+import React, {FC, ReactElement, ReactNode, useEffect, useRef} from 'react';
+import {InView} from 'react-intersection-observer';
+import Api from "../../services/api";
+import {IMPRESSION_TIMEOUT, IMPRESSION_THRESHOLD, IMPRESSION_MULTIPLE_MODE} from "../../contants/Settings";
 
 export type TypeInfiniteScrollProps = {
     listItems: ReactNode[];
@@ -8,29 +10,46 @@ export type TypeInfiniteScrollProps = {
 }
 
 const InfiniteScroll: FC<TypeInfiniteScrollProps> = ({listItems, lastRowHandler, hasMore}) => {
-    const [lastRowRef, lastRowInView] = useInView();
-    // if last row is in view, call the last row handler
-    const callLastRowHandler = () => {
-        console.log(lastRowInView, hasMore);
-        hasMore && lastRowInView && lastRowHandler();
+    const timeouts: { [index: string]: any } = useRef({})
+
+    const handleInView = (i: number, listItem: ReactNode, inView: boolean) => {
+        // @ts-ignore
+        if (listItems.length - 1 === i && hasMore) {
+            lastRowHandler();
+        }
+
+        const itemID = (listItem as ReactElement)?.props?.children?.key;
+
+        if (!itemID) {
+            return;
+        }
+
+        if (inView) {
+            timeouts.current[itemID] = setTimeout(() => {
+                Api.sendImpression(itemID);
+            }, IMPRESSION_TIMEOUT)
+        } else {
+            clearTimeout(timeouts.current[itemID])
+        }
+
     }
 
-    useEffect(callLastRowHandler, [lastRowInView]);
-
     const Elements = listItems.map((listItem, i) => {
-        const props: Record<string, any> = {key: i};
-        (i === listItems.length - 1) && (props['ref'] = lastRowRef);
-
         return (
-            <div {...props}>
-                {listItem} {hasMore } - {listItems.length - 1} - {i}
-                <div hidden={!(i === listItems.length - 1 && !hasMore) } style={{"backgroundColor": "red", "height": "430px", "overflow": "hidden"}}>
-                    <div>End of the list</div>
-                </div>
-            </div>
+            <InView
+                triggerOnce={IMPRESSION_MULTIPLE_MODE}
+                threshold={IMPRESSION_THRESHOLD}
+                as="div" onChange={(inView) => handleInView(i, listItem, inView)}>
+                {listItem}
+            </InView>
         );
     });
-    return (<>{Elements}</>);
+    return (<>
+        {Elements}
+        <div hidden={hasMore} style={{"backgroundColor": "red", "height": "430px", "overflow": "hidden"}}>
+            <div>End of the list</div>
+        </div>
+    </>);
 }
 
 export default InfiniteScroll;

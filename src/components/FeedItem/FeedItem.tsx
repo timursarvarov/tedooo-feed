@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {useInView} from "react-intersection-observer";
+import {UUID} from "crypto";
 
 
 export type TypeFeedItem = {
-    id: string;
+    id: UUID;
     user_name: string;
     shop_name: string;
     post_text: string;

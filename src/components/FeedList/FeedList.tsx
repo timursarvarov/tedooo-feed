@@ -32,7 +32,7 @@ const FeedList: React.FC = () => {
 
 
     const NodeFeedItems = feedItems.map(feedItem =>
-        <FeedItem item={feedItem} />
+        <FeedItem item={feedItem} key={feedItem.id} />
     );
 
 

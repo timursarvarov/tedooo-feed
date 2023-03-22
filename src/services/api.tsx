@@ -1,19 +1,9 @@
 import axios, {AxiosInstance} from 'axios';
 import {FeedApiInterface, FeedResponse} from "./FeedApiInterface";
 import {TypeFeedItem} from "../components/FeedItem/FeedItem";
+import {UUID} from "crypto";
+import { API_URL } from '../contants/Settings';
 
-interface UserListParams {
-    // Define the parameters expected for getUserList, e.g.
-    // limit: number;
-    // offset: number;
-}
-
-interface NewUserData {
-    // Define the data structure expected for addNewUser, e.g.
-    // name: string;
-    // email: string;
-    // password: string;
-}
 
 class Api implements FeedApiInterface {
     private readonly apiToken: string | null;
@@ -25,7 +15,7 @@ class Api implements FeedApiInterface {
     constructor() {
         this.apiToken = null;
         this.client = null;
-        this.apiUrl = 'https://dev.tedooo.com';
+        this.apiUrl = API_URL;
     }
 
     init = (): AxiosInstance => {
@@ -66,8 +56,9 @@ class Api implements FeedApiInterface {
             });
     };
 
-    addNewUser = (data: NewUserData) => {
-        return this.init().post('/users', data);
+    sendImpression = (itemId: UUID) => {
+        return this.init()
+            .get(``, {params:{itemId}})
     };
 }
 
