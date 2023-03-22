@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="028bd397-cec4-4255-af42-441a8705175f" name="Changes" comment="InfiniteScroll implementation">
-      <change afterPath="$PROJECT_DIR$/src/contants/Settings.tsx" afterDir="false" />
+    <list default="true" id="028bd397-cec4-4255-af42-441a8705175f" name="Changes" comment="Changed on InView component, added global vars">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FeedItem/FeedItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FeedItem/FeedItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FeedList/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FeedList/FeedList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InfiniteScroll/InfiniteScroll.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfiniteScroll/InfiniteScroll.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/VirtualAndInfiniteScroll/VirtualAndInfiniteScroll.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/VirtualAndInfiniteScroll/VirtualAndInfiniteScroll.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contants/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contants/Settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/FeedApiInterface.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/FeedApiInterface.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Api.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679423244588</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changed on InView component, added global vars">
+      <created>1679499882997</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679499882997</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +177,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="project init" />
     <MESSAGE value="InfiniteScroll implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="InfiniteScroll implementation" />
+    <MESSAGE value="Changed on InView component, added global vars" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed on InView component, added global vars" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

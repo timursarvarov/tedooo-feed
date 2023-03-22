@@ -1,7 +1,11 @@
 import React, {FC, ReactElement, ReactNode, useEffect, useRef} from 'react';
 import {InView} from 'react-intersection-observer';
-import Api from "../../services/api";
-import {IMPRESSION_TIMEOUT, IMPRESSION_THRESHOLD, IMPRESSION_MULTIPLE_MODE} from "../../contants/Settings";
+import Api from "../../services/Api";
+import {
+    IMPRESSION_THRESHOLD,
+    IMPRESSION_TRIGGER_ONCE,
+    IMPRESSION_DELAY
+} from "../../contants/Settings";
 
 export type TypeInfiniteScrollProps = {
     listItems: ReactNode[];
@@ -10,11 +14,10 @@ export type TypeInfiniteScrollProps = {
 }
 
 const InfiniteScroll: FC<TypeInfiniteScrollProps> = ({listItems, lastRowHandler, hasMore}) => {
-    const timeouts: { [index: string]: any } = useRef({})
 
     const handleInView = (i: number, listItem: ReactNode, inView: boolean) => {
         // @ts-ignore
-        if (listItems.length - 1 === i && hasMore) {
+        if (listItems.length - 1 === i && hasMore && inView) {
             lastRowHandler();
         }
 
@@ -25,11 +28,7 @@ const InfiniteScroll: FC<TypeInfiniteScrollProps> = ({listItems, lastRowHandler,
         }
 
         if (inView) {
-            timeouts.current[itemID] = setTimeout(() => {
-                Api.sendImpression(itemID);
-            }, IMPRESSION_TIMEOUT)
-        } else {
-            clearTimeout(timeouts.current[itemID])
+            Api.sendImpression(itemID);
         }
 
     }
@@ -37,7 +36,9 @@ const InfiniteScroll: FC<TypeInfiniteScrollProps> = ({listItems, lastRowHandler,
     const Elements = listItems.map((listItem, i) => {
         return (
             <InView
-                triggerOnce={IMPRESSION_MULTIPLE_MODE}
+                key={i}
+                delay={IMPRESSION_DELAY}
+                triggerOnce={IMPRESSION_TRIGGER_ONCE}
                 threshold={IMPRESSION_THRESHOLD}
                 as="div" onChange={(inView) => handleInView(i, listItem, inView)}>
                 {listItem}
@@ -46,9 +47,6 @@ const InfiniteScroll: FC<TypeInfiniteScrollProps> = ({listItems, lastRowHandler,
     });
     return (<>
         {Elements}
-        <div hidden={hasMore} style={{"backgroundColor": "red", "height": "430px", "overflow": "hidden"}}>
-            <div>End of the list</div>
-        </div>
     </>);
 }
 

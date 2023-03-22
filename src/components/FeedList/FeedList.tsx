@@ -2,39 +2,45 @@ import React, {useState, useEffect, ReactNode} from 'react';
 import {FeedItem, TypeFeedItem} from "../FeedItem/FeedItem";
 import {useEffectOnce} from "../../hooks/UseEffectOnce";
 import VirtualAndInfiniteScroll from "../VirtualAndInfiniteScroll/VirtualAndInfiniteScroll";
-import Api from "../../services/api";
+import Api from "../../services/Api";
 import {FeedResponse} from "../../services/FeedApiInterface";
 
 const FeedList: React.FC = () => {
     const [feedItems, setFeedItems] = useState<TypeFeedItem[]>([]);
     const [skip, setSkip] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const [hasError, setHasError] = useState(false);
     const [hasMore, setHasMore] = useState<boolean>(true);
 
     const fetchFeedItems = async () => {
-        try {
-            const data: FeedResponse = await Api.getFeedList(skip) // get(`https://dev.tedooo.com/hw/feed.json?skip=${skip}`);
-
-            setFeedItems(prevItems => {
-                return [...prevItems, ...data.feedList]
-            });
-            setSkip(skip + 6);
-            setHasMore(data.hasMore);
-        } catch (error) {
+        setLoading(true);
+        setHasError(false);
+        Api.getFeedList(skip).then(
+            (response) => {
+                const {feedList, hasMore} = response;
+                setFeedItems(prevItems => {
+                    return [...prevItems, ...feedList]
+                });
+                setHasMore(hasMore);
+                setSkip(skip + 6);
+            }
+        ).catch((error) => {
             console.error(error);
-        }
+            setHasError(true);
+        }).finally(() => {
+            setLoading(false);
+        })
     };
 
 
     useEffectOnce(() => {
         fetchFeedItems();
-        console.log('useEffect', skip);
     });
 
 
     const NodeFeedItems = feedItems.map(feedItem =>
-        <FeedItem item={feedItem} key={feedItem.id} />
+        <FeedItem item={feedItem} key={feedItem.id}/>
     );
-
 
 
     return (
@@ -43,9 +49,9 @@ const FeedList: React.FC = () => {
             height={230}
             listItems={NodeFeedItems}
             hasMore={hasMore}
+            loading={loading}
+            hasError={hasError}
         />);
-
-
 };
 
 export default FeedList;

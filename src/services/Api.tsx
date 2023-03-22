@@ -2,7 +2,7 @@ import axios, {AxiosInstance} from 'axios';
 import {FeedApiInterface, FeedResponse} from "./FeedApiInterface";
 import {TypeFeedItem} from "../components/FeedItem/FeedItem";
 import {UUID} from "crypto";
-import { API_URL } from '../contants/Settings';
+import {API_URL} from '../contants/Settings';
 
 
 class Api implements FeedApiInterface {
@@ -47,7 +47,7 @@ class Api implements FeedApiInterface {
 
     getFeedList = (skip: number) => {
         return this.init()
-            .get(`/hw/feed.json`, {params:{skip}})
+            .get(`/hw/feed.json`, {params: {skip}})
             .then((response) => {
                 return {
                     feedList: response.data.data as TypeFeedItem[],
@@ -56,10 +56,11 @@ class Api implements FeedApiInterface {
             });
     };
 
-    sendImpression = (itemId: UUID) => {
+    sendImpression(itemId: UUID): Promise<void> {
         return this.init()
-            .get(``, {params:{itemId}})
-    };
+            .get(``, {params: {itemId}});
+    }
+
 }
 
 export default Api.getInstance();
