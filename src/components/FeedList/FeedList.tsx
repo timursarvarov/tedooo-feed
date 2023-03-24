@@ -1,9 +1,8 @@
-import React, {useState, useEffect, ReactNode} from 'react';
+import React, {useState} from 'react';
 import {FeedItem, TypeFeedItem} from "../FeedItem/FeedItem";
 import {useEffectOnce} from "../../hooks/UseEffectOnce";
-import VirtualAndInfiniteScroll from "../VirtualAndInfiniteScroll/VirtualAndInfiniteScroll";
 import Api from "../../services/Api";
-import {FeedResponse} from "../../services/FeedApiInterface";
+import {Virtuoso} from 'react-virtuoso'
 
 const FeedList: React.FC = () => {
     const [feedItems, setFeedItems] = useState<TypeFeedItem[]>([]);
@@ -13,6 +12,7 @@ const FeedList: React.FC = () => {
     const [hasMore, setHasMore] = useState<boolean>(true);
 
     const fetchFeedItems = async () => {
+        if (!hasMore) return;
         setLoading(true);
         setHasError(false);
         Api.getFeedList(skip).then(
@@ -25,7 +25,7 @@ const FeedList: React.FC = () => {
                 setSkip(skip + 6);
             }
         ).catch((error) => {
-            console.error(error);
+            console.log(error);
             setHasError(true);
         }).finally(() => {
             setLoading(false);
@@ -34,24 +34,42 @@ const FeedList: React.FC = () => {
 
 
     useEffectOnce(() => {
+        // noinspection JSIgnoredPromiseFromCall
         fetchFeedItems();
     });
 
 
-    const NodeFeedItems = feedItems.map(feedItem =>
-        <FeedItem item={feedItem} key={feedItem.id}/>
-    );
+    const getLoadingState = () => {
+        if (loading) return 'Loading...'
+        else if (hasError) return 'Error'
+        else if (!hasMore) return 'No more data'
+        else return null
+    }
 
+    const Footer = () => {
+        return (
+            <div
+                style={{
+                    padding: '2rem',
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}
+            >
+                {getLoadingState()}
+            </div>
+        )
+    }
 
     return (
-        <VirtualAndInfiniteScroll
-            lastRowHandler={fetchFeedItems}
-            height={230}
-            listItems={NodeFeedItems}
-            hasMore={hasMore}
-            loading={loading}
-            hasError={hasError}
-        />);
+        <Virtuoso
+            style={{height: '100vh'}}
+            data={feedItems}
+            endReached={fetchFeedItems}
+            overscan={200}
+            itemContent={(index, feedItem) => {
+                return <FeedItem item={feedItem} key={feedItem.id}/>
+            }}
+            components={{Footer}}
+        />)
 };
-
 export default FeedList;

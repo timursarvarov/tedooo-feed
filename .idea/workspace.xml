@@ -4,23 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="028bd397-cec4-4255-af42-441a8705175f" name="Changes" comment="Changed on InView component, added global vars">
+    <list default="true" id="028bd397-cec4-4255-af42-441a8705175f" name="Changes" comment="Header implemented">
+      <change afterPath="$PROJECT_DIR$/src/assets/images/tedooo_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/user_avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/TDHeader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/TDHeader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FeedItem/FeedItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FeedItem/FeedItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FeedList/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FeedList/FeedList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InfiniteScroll/InfiniteScroll.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfiniteScroll/InfiniteScroll.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/VirtualAndInfiniteScroll/VirtualAndInfiniteScroll.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/VirtualAndInfiniteScroll/VirtualAndInfiniteScroll.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contants/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contants/Settings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/FeedApiInterface.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/FeedApiInterface.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InfiniteScroll/InfiniteScroll.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/VirtualAndInfiniteScroll/VirtualAndInfiniteScroll.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/VirtualScrollChild/VirtualScrollChild.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+      </list>
+    </option>
+  </component>
   <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -57,6 +69,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,6 +86,20 @@
     ]
   }
 }</component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.rcb.reactComponents" value="false" />
+        <entry key="com.haulmont.rcb.reactInspector" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images" />
+      <recent name="$PROJECT_DIR$/src/assets" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
@@ -108,6 +135,7 @@
       <workItem from="1679390427133" duration="1730000" />
       <workItem from="1679392919725" duration="7650000" />
       <workItem from="1679405340271" duration="27449000" />
+      <workItem from="1679654263840" duration="1085000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1679385259631</created>
@@ -178,7 +206,8 @@
     <MESSAGE value="project init" />
     <MESSAGE value="InfiniteScroll implementation" />
     <MESSAGE value="Changed on InView component, added global vars" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed on InView component, added global vars" />
+    <MESSAGE value="Header implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Header implemented" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
