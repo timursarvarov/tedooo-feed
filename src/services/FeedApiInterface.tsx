@@ -1,4 +1,4 @@
-import {TypeFeedItem} from "../components/FeedItem/FeedItem";
+import {TypeFeedItem} from "../components/TDFeedItem/TDFeedItem";
 import {UUID} from "crypto";
 
 export interface FeedResponse {

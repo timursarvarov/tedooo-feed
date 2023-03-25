@@ -1,6 +1,6 @@
 import axios, {AxiosInstance} from 'axios';
 import {FeedApiInterface, FeedResponse} from "./FeedApiInterface";
-import {TypeFeedItem} from "../components/FeedItem/FeedItem";
+import {TypeFeedItem} from "../components/TDFeedItem/TDFeedItem";
 import {UUID} from "crypto";
 import {API_URL} from '../contants/Settings';
 

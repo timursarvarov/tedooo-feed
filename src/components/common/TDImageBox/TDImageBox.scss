@@ -1,0 +1,128 @@
+
+.wrapper-image-container {
+  width: 100%;
+  //max-height: 60vh;
+
+  .image-grid-container {
+    grid-column-gap: 32px;
+    grid-row-gap: 12px;
+    border-radius: 4px;
+    -webkit-column-gap: 12px;
+    column-gap: 12px;
+    display: grid;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    max-height: 60vmin;
+    row-gap: 12px;
+    width: 100%;
+
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+
+      &.clickable {
+        cursor: pointer;
+      }
+    }
+    img{
+      width: 100%;
+    }
+
+    &.one-image {
+      img{
+        width: auto;
+      }
+      grid-auto-flow: column;
+      grid-template-areas: "A";
+      //padding: 0 10% 0 10%;
+    }
+
+    &.two-images {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &.three-images {
+      grid-auto-flow: column;
+      grid-template-areas: "A B"
+                         "A B"
+                         "A C"
+                         "A C";
+
+      .image-container {
+        &:first-child {
+          grid-area: A;
+        }
+
+        &:nth-child(2) {
+          grid-area: B;
+        }
+
+        &:nth-child(3) {
+          grid-area: C;
+        }
+      }
+
+    }
+
+
+    &.four-images {
+      grid-auto-flow: column;
+      grid-template-areas: "A A A"
+                         "B C D";
+
+      .image-container {
+        &:first-child {
+          grid-area: A;
+        }
+
+        &:nth-child(2) {
+          grid-area: B;
+        }
+
+        &:nth-child(3) {
+          grid-area: C;
+        }
+
+        &:nth-child(4) {
+          grid-area: D;
+        }
+      }
+    }
+
+    &.five-images {
+      grid-auto-flow: column;
+      grid-template-areas: "A A A B B B"
+                         "C C D D E E";
+
+      .image-container {
+        &:first-child {
+          grid-area: A;
+        }
+
+        &:nth-child(2) {
+          grid-area: B;
+        }
+
+        &:nth-child(3) {
+          grid-area: C;
+        }
+
+        &:nth-child(4) {
+          grid-area: D;
+        }
+
+        &:nth-child(5) {
+          grid-area: E;
+        }
+      }
+    }
+
+  }
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
+}
