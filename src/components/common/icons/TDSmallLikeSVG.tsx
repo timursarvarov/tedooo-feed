@@ -6,8 +6,8 @@ type TypeCommentSVGProps = {
 }
 export const TDSmallLikeSVG: FC<TypeCommentSVGProps> = ({height = 19, width = 19}) => {
     return (
-        <svg width={height} height={height} viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_3_1043)">
+        <svg width={width} height={height} viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clipPath="url(#clip0_3_1043)">
                 <path
                     d="M9 0C6.61305 0 4.32387 0.948212 2.63604 2.63604C0.948212 4.32387 0 6.61305 0 9C0 11.3869 0.948212 13.6761 2.63604 15.364C4.32387 17.0518 6.61305 18 9 18C11.3869 18 13.6761 17.0518 15.364 15.364C17.0518 13.6761 18 11.3869 18 9C18 6.61305 17.0518 4.32387 15.364 2.63604C13.6761 0.948212 11.3869 0 9 0V0Z"
                     fill="url(#paint0_linear_3_1043)"/>
