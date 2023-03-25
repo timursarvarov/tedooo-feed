@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="028bd397-cec4-4255-af42-441a8705175f" name="Changes" comment="Implemented main logic and layout">
-      <change afterPath="$PROJECT_DIR$/src/components/TDFeedItem/TDFeedItem.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TDFeedList/TDFeedList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/TDImageBox/TDImageBox.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/TDImageBox/TDImageBox.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/TDImageSkeleton/TDImageSkeleton.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/TDImageSkeleton/TDImageSkeleton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/TDImageWithPlaceholder/TDImageWithPlaceholder.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/icons/TDCommentSVG.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/icons/TDSmallLikeSVG.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/ImageToRGB.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FeedItem/FeedItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TDFeedItem/TDFeedItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FeedList/FeedList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/Api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Api.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/FeedApiInterface.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/FeedApiInterface.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/TDHeader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/TDHeader.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TDFeedItem/TDFeedItem.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TDFeedItem/TDFeedItem.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/TDImageBox/TDImageBox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/TDImageBox/TDImageBox.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/TDImageSkeleton/TDImageSkeleton.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/TDImageSkeleton/TDImageSkeleton.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +137,7 @@
       <workItem from="1679392919725" duration="7650000" />
       <workItem from="1679405340271" duration="27449000" />
       <workItem from="1679654263840" duration="29261000" />
-      <workItem from="1679686622803" duration="25973000" />
+      <workItem from="1679686622803" duration="26591000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1679385259631</created>
@@ -201,7 +188,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679745374652</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implemented main logic and layout">
+      <created>1679745516829</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679745516829</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implemented main logic and layout">
+      <created>1679745527526</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679745527526</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

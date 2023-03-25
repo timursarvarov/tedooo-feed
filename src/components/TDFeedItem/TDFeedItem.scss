@@ -4,14 +4,27 @@
   background: #FFFFFF;
   box-shadow: 0 1px 7px rgba(40, 47, 45, 0.07);
   border-radius: 4px;
+}
 
-  &:first-child {
-    margin-top: 16px;
-  }
+.feed-item-card:first-child {
+  margin-top: 16px;
+}
 
+.feed-item-card + .feed-item-card {
   margin-bottom: 16px;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
 [data-test-id="virtuoso-scroller"]::-webkit-scrollbar {
   display: none;
+}
+
+/* Hide scrollbar for Firefox */
+[data-test-id="virtuoso-scroller"] {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Internet Explorer and Edge */
+[data-test-id="virtuoso-scroller"] {
+  -ms-overflow-style: none; /* IE and Edge */
 }
