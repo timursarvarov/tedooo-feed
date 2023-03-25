@@ -1,47 +1,44 @@
-import React, {FC, useState} from "react";
-import {TDFeedItem, TypeFeedItem} from "../TDFeedItem/TDFeedItem";
-import {useEffectOnce} from "../../hooks/UseEffectOnce";
+import React, { FC, useState, useCallback } from "react";
+import { TDFeedItem, TypeFeedItem } from "../TDFeedItem/TDFeedItem";
+import { useEffectOnce } from "../../hooks/UseEffectOnce";
 import Api from "../../services/Api";
-import {Virtuoso} from "react-virtuoso";
-import {Col, Row} from "antd";
+import { Virtuoso } from "react-virtuoso";
+import { Col, Row } from "antd";
 
 type TypeFeedItemProps = {
     style?: React.CSSProperties;
-}
-const TDFeedList: FC<TypeFeedItemProps> = ({style}) => {
+};
+
+const TDFeedList: FC<TypeFeedItemProps> = ({ style }) => {
     const [feedItems, setFeedItems] = useState<TypeFeedItem[]>([]);
     const [skip, setSkip] = useState(0);
     const [loading, setLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
     const [hasMore, setHasMore] = useState<boolean>(true);
 
-    const fetchFeedItems = async () => {
+    const fetchFeedItems = useCallback(async () => {
         if (!hasMore) return;
         setLoading(true);
         setHasError(false);
-        Api.getFeedList(skip).then(
-            (response) => {
-                const {feedList, hasMore} = response;
-                setFeedItems(prevItems => {
-                    return [...prevItems, ...feedList];
-                });
-                setHasMore(hasMore);
-                setSkip(skip + 6);
-            }
-        ).catch((error) => {
+        try {
+            const response = await Api.getFeedList(skip);
+            const { feedList, hasMore } = response;
+            setFeedItems((prevItems) => {
+                return [...prevItems, ...feedList];
+            });
+            setHasMore(hasMore);
+            setSkip(skip + 6);
+        } catch (error) {
             console.log(error);
             setHasError(true);
-        }).finally(() => {
+        } finally {
             setLoading(false);
-        });
-    };
-
+        }
+    }, [hasMore, skip]);
 
     useEffectOnce(() => {
-        // noinspection JSIgnoredPromiseFromCall
         fetchFeedItems();
     });
-
 
     const getLoadingState = () => {
         if (loading) return "Loading...";
@@ -50,19 +47,17 @@ const TDFeedList: FC<TypeFeedItemProps> = ({style}) => {
         else return null;
     };
 
-    const Footer = () => {
-        return (
-            <div
-                style={{
-                    padding: "2rem",
-                    display: "flex",
-                    justifyContent: "center",
-                }}
-            >
-                {getLoadingState()}
-            </div>
-        );
-    };
+    const Footer = () => (
+        <div
+            style={{
+                padding: "2rem",
+                display: "flex",
+                justifyContent: "center",
+            }}
+        >
+            {getLoadingState()}
+        </div>
+    );
 
     return (
         <Row
@@ -77,17 +72,20 @@ const TDFeedList: FC<TypeFeedItemProps> = ({style}) => {
                 <Virtuoso
                     style={{
                         width: "100vw",
-                        height: "100vh", ...style
+                        height: "100vh",
+                        ...style,
                     }}
                     data={feedItems}
                     endReached={fetchFeedItems}
                     overscan={200}
                     itemContent={(index, feedItem) => {
-                        return <TDFeedItem item={feedItem} key={feedItem.id}/>;
+                        return <TDFeedItem item={feedItem} key={feedItem.id} />;
                     }}
-                    components={{Footer}}
+                    components={{ Footer }}
                 />
             </Col>
-        </Row>)
+        </Row>
+    );
 };
+
 export default TDFeedList;

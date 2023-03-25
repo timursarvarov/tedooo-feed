@@ -1,5 +1,11 @@
 import {get_average_rgb} from "../../../helpers/ImageToRGB";
-import React, {FC, ReactNode, useRef, useState, useCallback} from "react";
+import React, {
+    FC,
+    ReactNode,
+    useRef,
+    useState,
+    useCallback,
+} from "react";
 
 interface ImageWithPlaceholderProps {
     ImagePlaceholder: ReactNode;
@@ -18,7 +24,7 @@ const TDImageWithPlaceholder: FC<ImageWithPlaceholderProps> =
          stopLoading,
      }) => {
         const [loaded, setLoaded] = useState(false);
-        const imageRef = useRef(null);
+        const imageRef = useRef<HTMLImageElement>(null);
 
         const handleImageLoaded = useCallback(async () => {
             setLoaded(true);
@@ -35,7 +41,6 @@ const TDImageWithPlaceholder: FC<ImageWithPlaceholderProps> =
         const getSource = () => {
             //TODO Need to find better way to stop loading images on fast scrolling
             return src;
-
 
             // if (!loaded && stopLoading) {
             //     return '';
