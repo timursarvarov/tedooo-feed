@@ -18,11 +18,11 @@ export const TDSmallLikeSVG: FC<TypeCommentSVGProps> = ({height = 19, width = 19
             <defs>
                 <linearGradient id="paint0_linear_3_1043" x1="-2.7" y1="-2.025" x2="25.116" y2="22.9894"
                                 gradientUnits="userSpaceOnUse">
-                    <stop offset="0.03125" stop-color="#96DCD0"/>
-                    <stop offset="0.0520833" stop-color="#6CCEBD"/>
-                    <stop offset="0.333333" stop-color="#2DB8A1"/>
-                    <stop offset="0.697917" stop-color="#28A38F"/>
-                    <stop offset="1" stop-color="#208171"/>
+                    <stop offset="0.03125" stopColor="#96DCD0"/>
+                    <stop offset="0.0520833" stopColor="#6CCEBD"/>
+                    <stop offset="0.333333" stopColor="#2DB8A1"/>
+                    <stop offset="0.697917" stopColor="#28A38F"/>
+                    <stop offset="1" stopColor="#208171"/>
                 </linearGradient>
                 <clipPath id="clip0_3_1043">
                     <rect width="18" height="18" fill="white"/>
