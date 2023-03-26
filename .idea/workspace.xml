@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="028bd397-cec4-4255-af42-441a8705175f" name="Changes" comment="Implemented main logic and layout">
+    <list default="true" id="028bd397-cec4-4255-af42-441a8705175f" name="Changes" comment="added cors to readme file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/TDHeader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/TDHeader.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TDFeedItem/TDFeedItem.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TDFeedItem/TDFeedItem.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/TDImageBox/TDImageBox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/TDImageBox/TDImageBox.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/TDImageSkeleton/TDImageSkeleton.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/TDImageSkeleton/TDImageSkeleton.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +135,7 @@
       <workItem from="1679392919725" duration="7650000" />
       <workItem from="1679405340271" duration="27449000" />
       <workItem from="1679654263840" duration="29261000" />
-      <workItem from="1679686622803" duration="26591000" />
+      <workItem from="1679686622803" duration="31931000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1679385259631</created>
@@ -202,7 +200,49 @@
       <option name="project" value="LOCAL" />
       <updated>1679745527526</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="scss files small fixes">
+      <created>1679746179843</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679746179843</updated>
+    </task>
+    <task id="LOCAL-00011" summary="improvements custom use effect">
+      <created>1679748503569</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679748503569</updated>
+    </task>
+    <task id="LOCAL-00012" summary="small improvements (useEffect)">
+      <created>1679748751688</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679748751688</updated>
+    </task>
+    <task id="LOCAL-00013" summary="small improvements">
+      <created>1679749967696</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679749967696</updated>
+    </task>
+    <task id="LOCAL-00014" summary="small improvements">
+      <created>1679750168432</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679750168432</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added cors to readme file">
+      <created>1679751238402</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1679751238402</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +280,12 @@
     <MESSAGE value="Header implemented, virtual scrolling changed on viruiso" />
     <MESSAGE value="git ignore" />
     <MESSAGE value="Implemented main logic and layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented main logic and layout" />
+    <MESSAGE value="scss files small fixes" />
+    <MESSAGE value="improvements custom use effect" />
+    <MESSAGE value="small improvements (useEffect)" />
+    <MESSAGE value="small improvements" />
+    <MESSAGE value="added cors to readme file" />
+    <option name="LAST_COMMIT_MESSAGE" value="added cors to readme file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
